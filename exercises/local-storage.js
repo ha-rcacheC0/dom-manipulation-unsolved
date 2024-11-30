@@ -38,3 +38,31 @@
  */
 
 // Your code goes here...
+
+const cards = document.querySelectorAll(".card");
+
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+favorites.forEach((fav) => {
+  const card = document.getElementById(fav);
+  if (card) {
+    card.classList.add("red");
+  }
+});
+
+cards.forEach((card) => {
+  card.style.cursor = "pointer";
+  card.addEventListener("click", () => {
+    const cardId = card.getAttribute("id");
+    if (!card.classList.contains("red")) {
+      card.classList.add("red");
+      favorites.push(cardId);
+    } else {
+      card.classList.remove("red");
+      favorites = favorites.filter((fav) => {
+        return fav !== cardId;
+      });
+    }
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  });
+});

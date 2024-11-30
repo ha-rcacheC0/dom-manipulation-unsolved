@@ -63,7 +63,7 @@ nav ul {
 }
 
 nav a {
-  color: #DA5252;
+  color: #da5252;
   font-weight: bold;
 }
 
@@ -77,34 +77,34 @@ button.sortBtn {
 }
 
 .violet {
-  background: #9400D3;
+  background: #9400d3;
   color: white;
 }
 
 .indigo {
-  background: #4B0082;
+  background: #4b0082;
   color: white;
 }
 
 .blue {
-  background: #0000FF;
-  color: white
+  background: #0000ff;
+  color: white;
 }
 
 .green {
-  background: #00FF00;
+  background: #00ff00;
 }
 
 .yellow {
-  background: #FFFF00;
+  background: #ffff00;
 }
 
 .orange {
-  background: #FF7F00;
+  background: #ff7f00;
 }
 
 .red {
-  background: #FF0000;
+  background: #ff0000;
 }
 
 .cardsContainer {
