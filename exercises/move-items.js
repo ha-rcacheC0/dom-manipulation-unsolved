@@ -2,7 +2,7 @@
  * SORTING NODES WITHIN A CONTAINER
  * Please, make sure to read the following files in the exercises-info folder before you start
  * * 01 SelectNodes.md
-*/
+ */
 
 /**
  * @task
@@ -13,7 +13,7 @@
 
 // Your code goes here...
 
-
+const allItems = document.querySelectorAll(".item");
 
 /**
  * @task
@@ -24,7 +24,7 @@
 
 // Your code goes here
 
-
+const main = document.getElementById("main");
 
 /**
  * @task
@@ -35,7 +35,7 @@
 
 // Your code goes here
 
-
+const favs = document.getElementById("favs");
 
 /**
  * @task
@@ -48,7 +48,21 @@
 
 // Your code goes here
 
-
+const updateCollections = (id, direction) => {
+  const item = document.getElementById(id);
+  const icon = item.querySelector("i");
+  if (direction === "toMain") {
+    icon.classList.remove("fa-heart-crack");
+    icon.classList.add("fa-heart-circle-plus");
+    favs.removeChild(item);
+    main.appendChild(item);
+  } else if (direction === "toFavs") {
+    main.removeChild(item);
+    favs.appendChild(item);
+    icon.classList.remove("fa-heart-circle-plus");
+    icon.classList.add("fa-heart-crack");
+  }
+};
 
 /**
  * @task
@@ -66,4 +80,14 @@
 
 // Your code goes here...
 
-
+allItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    const itemID = item.getAttribute("id");
+    const itemParent = item.parentElement;
+    if (itemParent.getAttribute("id") === "favs") {
+      updateCollections(itemID, "toMain");
+    } else if (itemParent.getAttribute("id") === "main") {
+      updateCollections(itemID, "toFavs");
+    }
+  });
+});
